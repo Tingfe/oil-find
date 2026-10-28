@@ -48,6 +48,7 @@ Oil Find 是 macOS 上的文件搜索工具，思路和 Windows 上的 Everythin
 | `*.png` | 通配符，匹配整个名称 |
 | `~/Desktop/ png` | 只在桌面下面找 |
 | `ext:pdf;docx`、`ext:pdf,docx` | 按扩展名；多个类型可用分号或逗号分隔 |
+| `noext:` | 查找无扩展名的文件，如 `Makefile` 或 `.env` |
 | `kind:image` | 按类型：folder、app、doc、image、video、audio、code、archive |
 | `file:`、`folder:` | 只要文件，或只要文件夹 |
 | `size:>10mb`、`size:1mb..5mb` | 按大小 |
