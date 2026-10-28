@@ -14,6 +14,7 @@ describe.each(['zh', 'en'] as const)('search demonstration (%s)', lang => {
     expect(names(lang, 'ext:png')).toHaveLength(4);
     expect(names(lang, 'ext:md,png')).toEqual(names(lang, 'ext:md;png'));
     expect(names(lang, 'ext:md，png')).toEqual(names(lang, 'ext:md;png'));
+    expect(names(lang, 'noext:')).toEqual(['Makefile']);
     expect(names(lang, '~/Desktop/ png')).toHaveLength(3);
   });
 
