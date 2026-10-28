@@ -72,6 +72,8 @@ final class M17Tests: XCTestCase {
             XCTAssertEqual(try paths(#"regex:^IMG_\d+"#, root: root, store: store), ["IMG_123.jpg"])
             XCTAssertEqual(try paths("äpfel", root: root, store: store), try paths("ÄPFEL", root: root, store: store))
             XCTAssertEqual(try paths("ext:md;png", root: root, store: store), try paths("ext:md | ext:png", root: root, store: store))
+            XCTAssertEqual(try paths("ext:md,png", root: root, store: store), try paths("ext:md;png", root: root, store: store))
+            XCTAssertEqual(try paths("ext:md，png", root: root, store: store), try paths("ext:md;png", root: root, store: store))
             XCTAssertTrue(try paths("size:>3b", root: root, store: store).contains("foo.txt"))
             XCTAssertTrue(try paths("dm:today", root: root, store: store).contains("foo.txt"))
             let sorted = try XCTUnwrap(Searcher.search(Query.parse("file"), options: SearchOptions(sort: .name, ascending: true), in: store))

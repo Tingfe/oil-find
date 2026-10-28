@@ -42,7 +42,7 @@ export function parse(raw: string): Query {
     const t = token.toLowerCase();
     q.empty = false;
     if (t === 'dm:today') q.today = true;
-    else if (t.startsWith('ext:')) q.exts.push(...t.slice(4).split(';').filter(Boolean));
+    else if (t.startsWith('ext:')) q.exts.push(...t.slice(4).split(/[;,，]/).filter(Boolean));
     else if (t.startsWith('*.') && t.length > 2) q.exts.push(t.slice(2));
     else if (t[0] === '!' && t.length > 1) q.neg.push(t.slice(1));
     else if (t.includes('/')) q.paths.push(t.replace(/\/+$/, ''));
